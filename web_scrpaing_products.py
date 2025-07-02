@@ -30,12 +30,13 @@ while True:
     product_elements = driver.find_elements(By.CSS_SELECTOR, 'article.product_pod h3 a')
     for product in product_elements:
         title = product.get_attribute('title')  # Book title is in the 'title' attribute
-        csv_writer.writerow([title])
+        csv_writer.writerow([title]) # Will write the titles of the books into the CSV 
 
     # Check for "next" page
     try:
         next_button = driver.find_element(By.CSS_SELECTOR, 'li.next a')
-        next_button.click()
+        next_button.click() 
+        # In this example, if site had multiple pages, so like this one has 1000 lisitings, it will go through each page to extract the data!! 
     except:
         break
 
@@ -43,3 +44,5 @@ while True:
 csv_file.close()
 driver.quit()
 print("Scraping complete. Data saved to products.csv.")
+
+#this was amazing!!! 
